@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "479494681585",
+    "project_id": "nizara-customer-app",
+    "storage_bucket": "nizara-customer-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479494681585:android:3bd12241ab4861941b0a50",
+        "android_client_info": {
+          "package_name": "onealldigital.nizara.in"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "479494681585-cfc5mg15stbm4fa289k2eknqrrdtk2im.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "onealldigital.nizara.in",
+            "certificate_hash": "03d54e3e9678a2b2fb88195df556f0d4b5ab0c85"
+          }
+        },
+        {
+          "client_id": "479494681585-v8atm2i3rk7j7brll6bomg1b9gb3ssrg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJ13phFeo0pTOO3b14h7LYCnCKwKnmIhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "479494681585-v8atm2i3rk7j7brll6bomg1b9gb3ssrg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

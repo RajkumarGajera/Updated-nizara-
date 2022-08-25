@@ -1,0 +1,141 @@
+package onealldigital.nizara.in.adapter;
+
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.os.Build;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+
+import onealldigital.nizara.in.R;
+import onealldigital.nizara.in.activity.MainActivity;
+import onealldigital.nizara.in.fragment.CartFragment;
+import onealldigital.nizara.in.fragment.HomeFragment;
+import onealldigital.nizara.in.helper.Constant;
+import onealldigital.nizara.in.helper.Session;
+import onealldigital.nizara.in.model.PinCode;
+
+public class PinCodeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+    // for load more
+    public final int VIEW_TYPE_ITEM = 0;
+    public final int VIEW_TYPE_LOADING = 1;
+    final Activity activity;
+    final ArrayList<PinCode> pinCodes;
+    public boolean isLoading;
+    Session session;
+    String from;
+
+
+    public PinCodeAdapter(Activity activity, ArrayList<PinCode> pinCodes, String from) {
+        this.activity = activity;
+        this.session = new Session(activity);
+        this.pinCodes = pinCodes;
+        this.from = from;
+    }
+
+    public void add(int position, PinCode pinCode) {
+        pinCodes.add(position, pinCode);
+        notifyItemInserted(position);
+    }
+
+    public void setLoaded() {
+        isLoading = false;
+    }
+
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, final int viewType) {
+        if (viewType == VIEW_TYPE_ITEM) {
+            View view = LayoutInflater.from(activity).inflate(R.layout.lyt_pin_code_list, parent, false);
+            return new PinCodeHolder(view);
+        } else if (viewType == VIEW_TYPE_LOADING) {
+            View view = LayoutInflater.from(activity).inflate(R.layout.item_progressbar, parent, false);
+            return new ViewHolderLoading(view);
+        }
+
+        return null;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @SuppressLint("SetTextI18n")
+    @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder holderparent, final int position) {
+
+        if (holderparent instanceof PinCodeHolder) {
+            final PinCodeHolder holder = (PinCodeHolder) holderparent;
+            try {
+                final PinCode pinCode = pinCodes.get(position);
+
+                holder.tvPinCode.setText(pinCode.getPincode());
+
+                holder.tvPinCode.setOnClickListener(v -> {
+                    session.setBoolean(Constant.GET_SELECTED_PINCODE, true);
+                    session.setData(Constant.GET_SELECTED_PINCODE_ID, pinCode.getId());
+                    session.setData(Constant.GET_SELECTED_PINCODE_NAME, pinCode.getPincode());
+                    /*if (HomeFragment.tvLocation != null) {
+                        HomeFragment.tvLocation.setText(pinCode.getPincode());
+                    }*/
+                    /*if (CartFragment.tvLocation != null) {
+                        CartFragment.tvLocation.setText(pinCode.getPincode());
+                    }*/
+//                    if (from.equals("home")) {
+//                        HomeFragment.refreshListener.onRefresh();
+//                    } else {
+//                        CartFragment.refreshListener.onRefresh();
+//                    }
+                    MainActivity.pinCodeFragment.dismiss();
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        } else if (holderparent instanceof ViewHolderLoading) {
+            ViewHolderLoading loadingViewHolder = (ViewHolderLoading) holderparent;
+            loadingViewHolder.progressBar.setIndeterminate(true);
+        }
+    }
+
+    @Override
+    public int getItemCount() {
+        return pinCodes.size();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return pinCodes.get(position) == null ? VIEW_TYPE_LOADING : VIEW_TYPE_ITEM;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return 0;
+    }
+
+    static class ViewHolderLoading extends RecyclerView.ViewHolder {
+        public final ProgressBar progressBar;
+
+        public ViewHolderLoading(View view) {
+            super(view);
+            progressBar = view.findViewById(R.id.itemProgressbar);
+        }
+    }
+
+    static class PinCodeHolder extends RecyclerView.ViewHolder {
+
+        final TextView tvPinCode;
+
+
+        public PinCodeHolder(@NonNull View itemView) {
+            super(itemView);
+
+            tvPinCode = itemView.findViewById(R.id.tvPinCode);
+        }
+    }
+}

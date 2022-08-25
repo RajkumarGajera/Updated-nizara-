@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.OrderDetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/order_detail_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_10dp"
+        android:background="@drawable/round_btn_bg"
+        android:backgroundTint="@color/quantum_orange"
+        android:padding="@dimen/dimen_10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/date_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_2dp"
+            android:weightSum="2"
+            app:layout_constraintBottom_toTopOf="@+id/status_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:ellipsize="end"
+                android:fontFamily="@font/worksans_medium"
+                android:maxLines="1"
+                android:text="@string/date"
+                android:textAllCaps="true"
+                android:textSize="@dimen/_15sdp" />
+
+            <TextView
+                android:id="@+id/order_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.4"
+                android:ellipsize="end"
+                android:fontFamily="@font/worksans_medium"
+                android:maxLines="1"
+                android:textAllCaps="true"
+                android:textSize="@dimen/_15sdp"
+                tools:text="21/01/2022" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/status_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_2dp"
+            android:weightSum="2"
+            app:layout_constraintBottom_toTopOf="@+id/value_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date_container">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:ellipsize="end"
+                android:fontFamily="@font/worksans_medium"
+                android:maxLines="1"
+                android:text="@string/status"
+                android:textAllCaps="true"
+                android:textSize="@dimen/_15sdp" />
+
+            <TextView
+                android:id="@+id/order_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.4"
+                android:ellipsize="end"
+                android:fontFamily="@font/worksans_semibold"
+                android:maxLines="1"
+                android:textSize="@dimen/_12sdp"
+                tools:text="Ordered>Confirmed>Shipped" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/value_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_2dp"
+            android:weightSum="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/status_container">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:ellipsize="end"
+                android:fontFamily="@font/worksans_medium"
+                android:maxLines="1"
+                android:text="@string/total_price"
+                android:textAllCaps="true"
+                android:textSize="@dimen/_15sdp" />
+
+            <TextView
+                android:id="@+id/order_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.4"
+                android:ellipsize="end"
+                android:fontFamily="@font/worksans_semibold"
+                android:maxLines="1"
+                android:textSize="@dimen/_15sdp"
+                tools:text="$31,200.00" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_order_item"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/order_detail_container"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/btn_open_dispute"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/round_tv_bg"
+        android:backgroundTint="@color/quantum_orange"
+        android:fontFamily="@font/open_sans_bold"
+        android:padding="@dimen/dimen_10dp"
+        android:text="@string/open_dispute"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_received" />
+
+    <TextView
+        android:id="@+id/btn_received"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/round_tv_bg"
+        android:backgroundTint="@color/quantum_orange"
+        android:fontFamily="@font/open_sans_bold"
+        android:padding="@dimen/dimen_10dp"
+        android:text="@string/received"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_open_dispute"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

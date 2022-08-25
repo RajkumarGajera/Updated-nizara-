@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    tools:context=".activity.SignUpActivity">
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="120dp"
+        android:src="@drawable/nizara_logo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lyt_signup"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/login_bg"
+        android:elevation="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_logo"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintWidth_percent="0.8">
+
+        <TextView
+            android:id="@+id/tv_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="@string/register"
+            android:textColor="@color/gray_blue"
+            android:textSize="@dimen/_20sdp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edt_signup_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/name"
+            android:importantForAutofill="yes"
+            android:inputType="phone|number"
+            android:padding="@dimen/dimen_7dp"
+            android:textColorHint="@color/darker_gray"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_signup"
+            app:layout_constraintWidth_percent="0.8" />
+
+        <EditText
+            android:id="@+id/edt_signup_mobile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="@string/phone_no"
+            android:importantForAutofill="yes"
+            android:inputType="phone|number"
+            android:padding="@dimen/dimen_7dp"
+            android:textColorHint="@color/darker_gray"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edt_signup_name"
+            app:layout_constraintWidth_percent="0.8" />
+
+        <EditText
+            android:id="@+id/edt_signup_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="@string/email_optional"
+            android:importantForAutofill="yes"
+            android:inputType="textEmailAddress"
+            android:padding="@dimen/dimen_7dp"
+            android:textColorHint="@color/darker_gray"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edt_signup_mobile"
+            app:layout_constraintWidth_percent="0.8"
+            />
+
+        <com.goodiebag.pinview.Pinview
+            android:id="@+id/signup_pin_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            app:cursorVisible="false"
+            app:forceKeyboard="false"
+            app:hint="0"
+            app:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_signup_email"
+            app:password="false"
+            app:pinBackground="@drawable/round_rect_grey_border"
+            app:pinHeight="35dp"
+            app:pinLength="6"
+            app:pinWidth="35dp"
+            app:splitWidth="6dp"
+            app:textSize="@dimen/_8sdp" />
+
+        <TextView
+            android:id="@+id/tv_enter_otp_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_8dp"
+            android:fontFamily="@font/worksans_semibold"
+            android:text="@string/enter_otp"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintStart_toStartOf="@id/edt_signup_mobile"
+            app:layout_constraintTop_toBottomOf="@id/signup_pin_view" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_signup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/round_btn_bg"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="@string/login_1"
+            android:textColor="@color/orange"
+            android:textSize="@dimen/_15sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_enter_otp_1"
+            app:layout_constraintWidth_percent="0.8" />
+
+        <View
+            android:id="@+id/view_1"
+            android:layout_width="0dp"
+            android:layout_height="1.5dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:background="@color/gray"
+            app:layout_constraintEnd_toEndOf="@id/btn_signup"
+            app:layout_constraintStart_toStartOf="@id/btn_signup"
+            app:layout_constraintTop_toBottomOf="@id/btn_signup"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:text="@string/or"
+            android:textSize="@dimen/_16sdp"
+            app:layout_constraintBottom_toBottomOf="@id/view_1"
+            app:layout_constraintEnd_toEndOf="@id/view_1"
+            app:layout_constraintStart_toStartOf="@id/view_1"
+            app:layout_constraintTop_toTopOf="@id/view_1"
+            app:layout_constraintVertical_bias="0.62" />
+
+        <ImageView
+            android:id="@+id/btn_fb_signup"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/fb"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            app:layout_constraintTop_toBottomOf="@id/view_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/btn_google_signup"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/btn_google_signup"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:src="@drawable/gg"
+            android:elevation="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            app:layout_constraintTop_toBottomOf="@id/view_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_fb_signup"
+            app:layout_constraintHorizontal_bias="0.5"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_no_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:text="@string/already_have_account"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold"
+        android:textColor="@color/gray_blue"
+        android:fontFamily="@font/worksans_semibold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lyt_signup"
+        />
+
+    <Button
+        android:id="@+id/btn_login_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login_1"
+        android:textSize="@dimen/_16sdp"
+        android:textAllCaps="true"
+        android:textColor="@color/blue"
+        android:fontFamily="@font/open_sans_bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_no_account"
+        app:layout_constraintStart_toStartOf="@id/tv_no_account"
+        app:layout_constraintEnd_toEndOf="@id/tv_no_account"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

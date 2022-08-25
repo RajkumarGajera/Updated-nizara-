@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <include
+        android:id="@+id/toolbar_layout"
+        layout="@layout/lyt_toolbar"
+        />
+
+    <LinearLayout
+        android:id="@+id/lytSearchview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_45dp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@drawable/bg_search"
+        android:elevation="@dimen/_15sdp"
+        android:padding="@dimen/_3sdp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_layout"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_layout"
+        >
+
+        <EditText
+            android:id="@+id/searchview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:background="@color/transparent"
+            android:drawableEnd="@drawable/ic_search"
+            android:drawablePadding="@dimen/_5sdp"
+            android:hint="@string/search_by_product_name"
+            android:inputType="text"
+            android:maxLines="1" />
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@id/bottomNavigationView"
+        app:layout_constraintTop_toBottomOf="@id/lytSearchview"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <me.ibrahimsn.lib.SmoothBottomBar
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_60dp"
+        app:backgroundColor="@color/bg_color"
+        app:duration="300"
+        app:iconSize="@dimen/dimen_20dp"
+        app:iconTint="@color/gray"
+        app:iconTintActive="@color/colorPrimary"
+        app:indicatorColor="@color/colorPrimaryLight"
+        app:indicatorRadius="@dimen/dimen_10dp"
+        app:menu="@menu/navigation"
+        app:textColor="@color/colorPrimary"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

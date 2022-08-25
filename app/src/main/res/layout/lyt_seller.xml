@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:id="@+id/lytMain"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="3dp"
+    app:cardElevation="@dimen/dimen_0dp"
+    android:elevation="@dimen/dimen_0dp">
+
+    <ImageView
+        android:id="@+id/imgSeller"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:scaleType="fitXY"
+        />
+
+</androidx.cardview.widget.CardView>
+
